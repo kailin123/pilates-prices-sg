@@ -88,29 +88,28 @@ ways:
    the form falls back to the local `/api/submit-promo` route (writes to `data/submissions.json`),
    which is handy in dev but won't persist on read-only serverless.
 
-### Automated review with Claude
+### Weekly review with Claude (no API key)
 
-Instead of eyeballing the queue, let Claude vet submissions and publish the good ones:
+The recommended flow reviews tips using your **Claude subscription** — no paid API. Once a week,
+open the repo in **Claude Code** (or Claude Desktop with filesystem access) and ask it to review
+new submissions. Under the hood:
 
 ```bash
-export ANTHROPIC_API_KEY=sk-ant-...
-npm run review               # DRY RUN — prints each verdict, writes nothing
-npm run review -- --apply    # publishes high-confidence approvals; logs the rest
+npm run review:prep      # prints pending tips + fetched page text + the studio roster (no API)
+# → Claude judges each one and publishes the good ones:
+npm run add-promo -- --studio <id> --label "..." --price 199 --classes 10 --source instagram --url <link>
+npm run review:done      # marks the batch reviewed so it won't reappear (writes data/reviewed.json)
 ```
 
-For each submission the reviewer (`scripts/review-submissions.mjs`) fetches the linked page when
-it can (social links aren't fetchable), asks Claude for a structured verdict, and
-**auto-publishes only** when the verdict is `approve`, confidence is `high`, the price is in a sane
-range, and it matches a known studio. Everything else goes to `data/review-log.json`. Processed
-tips are tracked in `data/reviewed.json` so they aren't re-reviewed.
+`review:prep` reads the local `data/submissions.json` queue by default; to pull public Google Form
+responses, publish the linked Sheet (File → Share → **Publish to web → CSV**) and set
+`SUBMISSIONS_CSV_URL` before running it. `data/reviewed.json` tracks handled tips;
+`data/review-log.json` (kept out of git) holds anything you want to note.
 
-- **Source:** reads the local `data/submissions.json` queue by default. To read Google Form
-  responses, publish the linked Sheet (File → Share → **Publish to web → CSV**) and set
-  `SUBMISSIONS_CSV_URL` to that URL.
-- **Model:** defaults to `claude-opus-5`; set `REVIEW_MODEL=claude-haiku-4-5` for ~5× lower cost on
-  this high-volume vetting task.
-- **Automate it:** run `npm run review -- --apply` on a schedule (e.g. a daily GitHub Action with
-  `ANTHROPIC_API_KEY` as a secret) and commit the updated `data/studios.json`.
+**Fully automated alternative (paid):** `scripts/review-submissions.mjs` also has an API mode
+(`npm run review -- --apply`) that calls the Claude API to auto-vet and publish. It needs an
+`ANTHROPIC_API_KEY` and bills per submission — only worth it if you don't want a human in the loop.
+Set `REVIEW_MODEL=claude-haiku-4-5` to minimise cost.
 
 ## The scraper
 
@@ -146,20 +145,12 @@ Static-friendly Next app — deploys to Vercel/Netlify/Cloudflare Pages as-is.
 
 ## Scheduled refresh (GitHub Action)
 
-`.github/workflows/refresh-prices.yml` runs daily (04:00 SGT) and on manual dispatch. It
-scrapes studio sites, has Claude review new promo submissions, and commits any changes back
-to `data/studios.json` (and `data/reviewed.json`, the dedupe state). To enable it:
+`.github/workflows/refresh-prices.yml` runs daily (04:00 SGT) and on manual dispatch. It scrapes
+studio websites and commits any changes back to `data/studios.json`. **No secrets or API key are
+required** — it uses the built-in `GITHUB_TOKEN` (`contents: write`) to push. Just push the repo to
+GitHub and, optionally, trigger a first run from the **Actions** tab. Change the cadence via the
+`cron` line.
 
-1. Push the repo to GitHub.
-2. **Settings → Secrets and variables → Actions**, add:
-   - Secret **`ANTHROPIC_API_KEY`** — your Claude API key (the review step is skipped if absent).
-   - Secret **`SUBMISSIONS_CSV_URL`** — the Google Sheet "Publish to web → CSV" URL (so CI reads
-     public form responses, not just the local queue).
-   - Variable **`REVIEW_MODEL`** *(optional)* — e.g. `claude-haiku-4-5` to cut cost.
-3. The workflow has `contents: write` permission and pushes commits via the built-in
-   `GITHUB_TOKEN` — no extra setup. Trigger a first run from the **Actions** tab.
-
-Notes: `data/reviewed.json` is committed on purpose (dedupe state — no PII), so CI never
-re-reviews or double-posts a tip. `data/review-log.json` (contains submitter emails) and
-`.env.local` are git-ignored and never leave your machine. Change the cadence via the `cron`
-line in the workflow.
+Promo submissions are **not** reviewed in CI — that's the weekly Claude review above (uses your
+subscription, not the paid API). `data/review-log.json` (submitter emails) and `.env.local` are
+git-ignored and never leave your machine.

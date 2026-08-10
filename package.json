@@ -9,7 +9,9 @@
     "lint": "eslint",
     "scrape": "tsx scraper/scrape.ts",
     "add-promo": "node scripts/add-promo.mjs",
-    "review": "node scripts/review-submissions.mjs"
+    "review": "node scripts/review-submissions.mjs",
+    "review:prep": "node scripts/review-submissions.mjs --prep",
+    "review:done": "node scripts/review-submissions.mjs --mark-seen"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.116.0",

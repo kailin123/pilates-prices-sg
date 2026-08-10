@@ -25,7 +25,7 @@ import { readFileSync, writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 import type { StudioData, Studio, Plan, PlanType } from "../lib/types";
-import { adapterById, type ScrapeResult } from "./adapters.ts";
+import { adapterById, type ScrapeResult } from "./adapters";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DATA_PATH = join(__dirname, "..", "data", "studios.json");

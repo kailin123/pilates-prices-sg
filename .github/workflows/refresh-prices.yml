@@ -1,10 +1,8 @@
 name: Refresh prices
 
-# Runs daily to refresh studio prices and review crowd-sourced promo tips.
-# Requires (Settings → Secrets and variables → Actions):
-#   Secret   ANTHROPIC_API_KEY    — your Claude API key (required for the review step)
-#   Secret   SUBMISSIONS_CSV_URL  — Google Sheet "Publish to web → CSV" URL (optional)
-#   Variable REVIEW_MODEL         — e.g. claude-haiku-4-5 to cut cost (optional; defaults to claude-opus-5)
+# Runs daily to refresh studio website prices (free — no API key, no secrets).
+# Crowd-sourced promo submissions are reviewed separately, by hand with Claude —
+# see the README "Weekly review with Claude" section (npm run review -- --prep).
 
 on:
   schedule:
@@ -36,20 +34,11 @@ jobs:
         run: npm run scrape -- --apply
         continue-on-error: true
 
-      # Let Claude vet crowd-sourced promo submissions and publish the confident ones.
-      - name: Review promo submissions
-        if: ${{ env.ANTHROPIC_API_KEY != '' }}
-        run: npm run review -- --apply
-        env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-          SUBMISSIONS_CSV_URL: ${{ secrets.SUBMISSIONS_CSV_URL }}
-          REVIEW_MODEL: ${{ vars.REVIEW_MODEL }}
-
       - name: Commit refreshed data
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/studios.json data/reviewed.json
+          git add data/studios.json
           if git diff --staged --quiet; then
             echo "No changes to commit."
           else

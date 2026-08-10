@@ -32,6 +32,8 @@ const SEEN = join(__dirname, "..", "data", "reviewed.json");
 const LOG = join(__dirname, "..", "data", "review-log.json");
 
 const APPLY = process.argv.includes("--apply");
+const PREP = process.argv.includes("--prep");        // no-API: print pending tips + evidence for a human/Claude to judge
+const MARK_SEEN = process.argv.includes("--mark-seen"); // no-API: mark all pending as reviewed (run after judging)
 const MODEL = process.env.REVIEW_MODEL || "claude-opus-5";
 
 // Same plausibility ranges the scraper uses — a promo outside these is rejected.
@@ -160,6 +162,33 @@ async function main() {
   const seen = new Set(loadJSON(SEEN, []));
   const log = loadJSON(LOG, []);
   const subs = (await loadSubmissions()).filter((s) => s.url && !seen.has(keyOf(s)));
+
+  // --- No-API modes (use your Claude subscription, not the metered API) ---
+  if (PREP) {
+    if (!subs.length) { console.log("No new submissions to review."); return; }
+    console.log(`${subs.length} pending submission(s). Known studios:\n`);
+    for (const s of data.studios) console.log(`  ${s.id} — ${s.name} (${s.areas.join(", ")})`);
+    console.log("\nUsable plan types: drop-in | intro | pack | unlimited. Sane price ranges (SGD): " +
+      Object.entries(SANE).map(([k, [lo, hi]]) => `${k} ${lo}-${hi}`).join(", ") + "\n");
+    for (let i = 0; i < subs.length; i++) {
+      const s = subs[i];
+      const evidence = await fetchEvidence(s.url);
+      console.log(`──── #${i + 1} ────────────────────────────────────────────`);
+      console.log(`studio (typed): ${s.studio || "(none)"}`);
+      console.log(`link:           ${s.url}   [${hostSource(s.url)}]`);
+      console.log(`offer:          ${s.offer || "(none)"}`);
+      console.log(`page text:      ${evidence ? evidence.slice(0, 800) + "…" : "(not fetchable — social/image link)"}`);
+      console.log("");
+    }
+    console.log("→ Judge each, then publish good ones with `npm run add-promo`, and run `npm run review -- --mark-seen`.");
+    return;
+  }
+  if (MARK_SEEN) {
+    subs.forEach((s) => seen.add(keyOf(s)));
+    writeFileSync(SEEN, JSON.stringify([...seen], null, 2) + "\n");
+    console.log(`Marked ${subs.length} submission(s) as reviewed.`);
+    return;
+  }
 
   console.log(`${APPLY ? "APPLY" : "DRY RUN"} · model ${MODEL} · ${subs.length} new submission(s)\n`);
   if (!subs.length) { console.log("Nothing new to review."); return; }
