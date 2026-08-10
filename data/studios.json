@@ -1,0 +1,776 @@
+{
+  "currency": "SGD",
+  "updatedAt": "2026-08-09",
+  "studios": [
+    {
+      "id": "pilates-fitness",
+      "name": "Pilates Fitness",
+      "areas": [
+        "Tanjong Pagar",
+        "Bugis",
+        "Novena"
+      ],
+      "disciplines": [
+        "reformer"
+      ],
+      "website": "https://pilatesfitness.com.sg",
+      "instagram": "https://www.instagram.com/pilatesfitness.sg",
+      "pricingUrl": "https://pilatesfitness.com.sg/pricing/",
+      "plans": [
+        {
+          "type": "drop-in",
+          "label": "Single group class",
+          "price": 65,
+          "validityDays": 30
+        },
+        {
+          "type": "pack",
+          "label": "10 group classes",
+          "price": 550,
+          "classes": 10,
+          "perClass": 55,
+          "validityDays": 90,
+          "shareable": true
+        },
+        {
+          "type": "pack",
+          "label": "15 group classes",
+          "price": 735,
+          "classes": 15,
+          "perClass": 49,
+          "validityDays": 120,
+          "shareable": true
+        },
+        {
+          "type": "pack",
+          "label": "25 group classes",
+          "price": 1175,
+          "classes": 25,
+          "perClass": 47,
+          "validityDays": 180,
+          "shareable": true
+        },
+        {
+          "type": "intro",
+          "label": "3 reformer classes (first-timer)",
+          "price": 99,
+          "classes": 3,
+          "perClass": 33
+        }
+      ],
+      "promos": [
+        {
+          "label": "3 Reformer + 2 BIXEPS Pro trial",
+          "price": 189,
+          "originalPrice": 391,
+          "classes": 5,
+          "firstTimerOnly": true,
+          "expires": null,
+          "source": "website",
+          "sourceUrl": "https://pilatesfitness.com.sg/pricing/"
+        },
+        {
+          "label": "3 Reformer classes trial",
+          "price": 99,
+          "originalPrice": 195,
+          "classes": 3,
+          "firstTimerOnly": true,
+          "expires": null,
+          "source": "website",
+          "sourceUrl": "https://pilatesfitness.com.sg/pricing/"
+        }
+      ],
+      "lastChecked": "2026-08-09",
+      "sourceUrl": "https://pilatesfitness.com.sg/pricing/",
+      "confidence": "verified",
+      "logo": "/logos/pilates-fitness.webp"
+    },
+    {
+      "id": "core-reformery",
+      "name": "The Core Reformery",
+      "areas": [
+        "City Hall",
+        "Bugis"
+      ],
+      "locations": [
+        "Purvis Street",
+        "North Bridge Road"
+      ],
+      "disciplines": [
+        "reformer"
+      ],
+      "website": "https://thecorereformery.com",
+      "instagram": "https://www.instagram.com/thecorereformery",
+      "pricingUrl": "https://thecorereformery.com/pricing/",
+      "plans": [
+        {
+          "type": "pack",
+          "label": "5 class pack",
+          "price": 275,
+          "classes": 5,
+          "perClass": 55,
+          "validityDays": 60
+        },
+        {
+          "type": "unlimited",
+          "label": "Lite Monthly Pass (5/mo)",
+          "price": 215,
+          "unlimited": false,
+          "period": "month",
+          "perClass": 43,
+          "notes": "5 classes/month, 3-month minimum"
+        },
+        {
+          "type": "unlimited",
+          "label": "Off-Peak Lite Pass (5/mo)",
+          "price": 199,
+          "unlimited": false,
+          "period": "month",
+          "perClass": 39.8,
+          "notes": "5 classes/month, weekday daytime only, 3-month minimum"
+        },
+        {
+          "type": "intro",
+          "label": "Trial pack (3 group classes)",
+          "price": 99,
+          "classes": 3,
+          "perClass": 33
+        }
+      ],
+      "promos": [
+        {
+          "label": "Trial pack — 3 group classes",
+          "price": 99,
+          "originalPrice": 120,
+          "classes": 3,
+          "firstTimerOnly": true,
+          "expires": null,
+          "source": "website",
+          "sourceUrl": "https://thecorereformery.com/pricing/"
+        }
+      ],
+      "lastChecked": "2026-08-09",
+      "sourceUrl": "https://thecorereformery.com/pricing/",
+      "confidence": "verified",
+      "notes": "Small classes: up to 4 at Purvis, up to 8 at North Bridge. No walk-in drop-in listed.",
+      "logo": "/logos/core-reformery.png"
+    },
+    {
+      "id": "kx-pilates",
+      "name": "KX Pilates",
+      "areas": [
+        "Siglap",
+        "River Valley",
+        "Orchard"
+      ],
+      "disciplines": [
+        "reformer"
+      ],
+      "website": "https://kxpilates.com",
+      "instagram": "https://www.instagram.com/kxpilates",
+      "pricingUrl": "https://kxpilates.com/sg",
+      "plans": [
+        {
+          "type": "drop-in",
+          "label": "Single class",
+          "price": 55
+        },
+        {
+          "type": "intro",
+          "label": "5-class intro pack",
+          "price": 85,
+          "classes": 5,
+          "perClass": 17
+        },
+        {
+          "type": "pack",
+          "label": "20 classes",
+          "price": 880,
+          "classes": 20,
+          "perClass": 44,
+          "validityDays": 365
+        },
+        {
+          "type": "pack",
+          "label": "50 sessions",
+          "price": 2125,
+          "classes": 50,
+          "perClass": 42.5,
+          "validityDays": 365
+        }
+      ],
+      "promos": [
+        {
+          "label": "5-class intro pack (first-timer)",
+          "price": 85,
+          "classes": 5,
+          "firstTimerOnly": true,
+          "expires": null,
+          "source": "website",
+          "sourceUrl": "https://kxpilates.com/sg"
+        }
+      ],
+      "lastChecked": "2026-08-09",
+      "sourceUrl": "https://kxpilates.com/sg",
+      "confidence": "verified",
+      "notes": "Prices compiled from listings; confirm on the SG booking site before purchase.",
+      "logo": "/logos/kx-pilates.png"
+    },
+    {
+      "id": "upside-motion",
+      "name": "Upside Motion",
+      "areas": [
+        "City Hall",
+        "Orchard",
+        "Shenton Way"
+      ],
+      "disciplines": [
+        "reformer",
+        "mat",
+        "barre"
+      ],
+      "website": "https://www.upsidemotion.com",
+      "instagram": "https://www.instagram.com/upsidemotion",
+      "pricingUrl": "https://www.upsidemotion.com",
+      "plans": [
+        {
+          "type": "intro",
+          "label": "Reformer trial pack (4 sessions)",
+          "price": 120,
+          "classes": 4,
+          "perClass": 30
+        },
+        {
+          "type": "unlimited",
+          "label": "Membership (7 classes/mo)",
+          "price": 179,
+          "unlimited": false,
+          "period": "month",
+          "perClass": 25.57,
+          "notes": "7 mat/barre/reformer classes per month"
+        }
+      ],
+      "promos": [
+        {
+          "label": "All-Access Newbie — 5 days unlimited",
+          "price": 49,
+          "firstTimerOnly": true,
+          "expires": null,
+          "source": "website",
+          "sourceUrl": "https://www.upsidemotion.com"
+        }
+      ],
+      "lastChecked": "2026-08-09",
+      "sourceUrl": "https://www.upsidemotion.com",
+      "confidence": "estimate",
+      "notes": "Mixed-discipline studio; reformer priced same tier as barre/mat. Verify current rates on site."
+    },
+    {
+      "id": "ally-pilates",
+      "name": "ALLY Pilates",
+      "areas": [
+        "Raffles Place",
+        "Tanjong Pagar"
+      ],
+      "disciplines": [
+        "reformer"
+      ],
+      "website": "https://www.allyspin.com",
+      "instagram": "https://www.instagram.com/allypilates.sg",
+      "pricingUrl": "https://www.allyspin.com",
+      "plans": [
+        {
+          "type": "drop-in",
+          "label": "Single class",
+          "price": 59
+        },
+        {
+          "type": "intro",
+          "label": "Intro 4 classes",
+          "price": 99,
+          "classes": 4,
+          "perClass": 24.75
+        }
+      ],
+      "promos": [],
+      "lastChecked": "2023-07-01",
+      "sourceUrl": "https://www.lemon8-app.com/@resident_unni/7263086792587477506",
+      "confidence": "stale",
+      "notes": "Figures date from 2023 launch coverage — needs re-verification against the current site.",
+      "logo": "/logos/ally-pilates.png"
+    },
+    {
+      "id": "the-flow-studio",
+      "name": "The Flow Studio",
+      "areas": [
+        "East Coast",
+        "Upper Thomson",
+        "Stanley Street",
+        "Bukit Timah"
+      ],
+      "disciplines": [
+        "reformer",
+        "mat"
+      ],
+      "website": "https://theflowstudio.co/singapore/",
+      "instagram": "https://www.instagram.com/theflowstudio.co",
+      "pricingUrl": "https://theflowstudio.co/singapore/pricing/",
+      "plans": [
+        {
+          "type": "drop-in",
+          "label": "Single reformer class",
+          "price": 55
+        },
+        {
+          "type": "intro",
+          "label": "Intro 4 reformer classes",
+          "price": 130,
+          "classes": 4,
+          "perClass": 32.5,
+          "validityDays": 30
+        },
+        {
+          "type": "pack",
+          "label": "10 class pack",
+          "price": 430,
+          "classes": 10,
+          "perClass": 43,
+          "validityDays": 90
+        },
+        {
+          "type": "pack",
+          "label": "25 class pack",
+          "price": 925,
+          "classes": 25,
+          "perClass": 37,
+          "validityDays": 180,
+          "shareable": true
+        },
+        {
+          "type": "pack",
+          "label": "50 class pack",
+          "price": 1800,
+          "classes": 50,
+          "perClass": 36,
+          "validityDays": 365,
+          "shareable": true
+        },
+        {
+          "type": "unlimited",
+          "label": "Flow Essential (4/mo)",
+          "price": 188,
+          "period": "month",
+          "perClass": 47,
+          "notes": "4 classes/month"
+        },
+        {
+          "type": "unlimited",
+          "label": "Flow Signature (8/mo)",
+          "price": 299,
+          "period": "month",
+          "perClass": 37.38,
+          "notes": "8 classes/month"
+        },
+        {
+          "type": "unlimited",
+          "label": "Sunrise Flow (unlimited AM)",
+          "price": 299,
+          "unlimited": true,
+          "period": "month",
+          "notes": "Unlimited weekday classes before 12pm"
+        }
+      ],
+      "promos": [],
+      "lastChecked": "2026-08-09",
+      "sourceUrl": "https://theflowstudio.co/singapore/pricing/",
+      "confidence": "verified",
+      "logo": "/logos/the-flow-studio.png"
+    },
+    {
+      "id": "focus-movement",
+      "name": "Focus Movement",
+      "areas": [
+        "Raffles Place"
+      ],
+      "disciplines": [
+        "reformer"
+      ],
+      "website": "https://focusmovement.sg",
+      "instagram": "https://www.instagram.com/focusmovement.sg",
+      "pricingUrl": "https://focusmovement.sg/pilates-reformer/",
+      "plans": [
+        {
+          "type": "intro",
+          "label": "Trial class",
+          "price": 28,
+          "classes": 1,
+          "perClass": 28
+        },
+        {
+          "type": "pack",
+          "label": "5 group classes (new client)",
+          "price": 215,
+          "classes": 5,
+          "perClass": 43,
+          "validityDays": 90
+        },
+        {
+          "type": "pack",
+          "label": "10 group classes (new client)",
+          "price": 415,
+          "classes": 10,
+          "perClass": 41.5
+        },
+        {
+          "type": "pack",
+          "label": "20 group classes (new client)",
+          "price": 780,
+          "classes": 20,
+          "perClass": 39
+        }
+      ],
+      "promos": [
+        {
+          "label": "New-client 5-class pack",
+          "price": 215,
+          "originalPrice": 270,
+          "classes": 5,
+          "firstTimerOnly": true,
+          "expires": null,
+          "source": "website",
+          "sourceUrl": "https://focusmovement.sg/pilates-reformer/"
+        }
+      ],
+      "lastChecked": "2026-08-09",
+      "sourceUrl": "https://focusmovement.sg/pilates-reformer/",
+      "confidence": "verified",
+      "logo": "/logos/focus-movement.ico"
+    },
+    {
+      "id": "strong-pilates",
+      "name": "STRONG Pilates",
+      "areas": [],
+      "disciplines": [
+        "reformer"
+      ],
+      "website": "https://strongpilates.com",
+      "pricingUrl": "https://strongpilates.com",
+      "plans": [
+        {
+          "type": "drop-in",
+          "label": "Single class",
+          "price": 45
+        },
+        {
+          "type": "intro",
+          "label": "Intro Experience (3 classes)",
+          "price": 69,
+          "classes": 3,
+          "perClass": 23
+        },
+        {
+          "type": "pack",
+          "label": "10 class pack",
+          "price": 339,
+          "classes": 10,
+          "perClass": 33.9
+        },
+        {
+          "type": "unlimited",
+          "label": "Weekly unlimited",
+          "price": 79,
+          "unlimited": true,
+          "period": "week",
+          "notes": "8-week lock-in"
+        }
+      ],
+      "promos": [
+        {
+          "label": "Intro Experience — 3 classes",
+          "price": 69,
+          "classes": 3,
+          "firstTimerOnly": true,
+          "expires": null,
+          "source": "website"
+        }
+      ],
+      "lastChecked": "2026-08-09",
+      "sourceUrl": "https://www.gyms.sg/blog/best-pilates-studios-singapore",
+      "confidence": "estimate",
+      "notes": "Reformer + cardio format. Multiple locations islandwide — verify areas and current rates on the studio site."
+    },
+    {
+      "id": "absolute-pilates",
+      "name": "Absolute Pilates",
+      "areas": [
+        "Orchard",
+        "Raffles Place",
+        "Great World",
+        "Katong",
+        "Buona Vista",
+        "Marina Centre"
+      ],
+      "disciplines": [
+        "reformer"
+      ],
+      "website": "https://www.absoluteboutiquefitness.com.sg",
+      "pricingUrl": "https://www.absoluteboutiquefitness.com.sg/packages",
+      "plans": [
+        {
+          "type": "drop-in",
+          "label": "Single class (first-timer)",
+          "price": 59,
+          "notes": "First-timer single-session rate; reformer & Wunda chair"
+        },
+        {
+          "type": "intro",
+          "label": "2-class trial",
+          "price": 42,
+          "classes": 2,
+          "perClass": 21
+        },
+        {
+          "type": "intro",
+          "label": "8-class trial",
+          "price": 160,
+          "classes": 8,
+          "perClass": 20
+        },
+        {
+          "type": "pack",
+          "label": "15 classes (SG61 30% off)",
+          "price": 472,
+          "classes": 15,
+          "perClass": 31.47,
+          "validityDays": 90,
+          "notes": "SG61 National Day promo pricing"
+        },
+        {
+          "type": "pack",
+          "label": "30 classes (SG61 30% off)",
+          "price": 861,
+          "classes": 30,
+          "perClass": 28.7,
+          "validityDays": 150,
+          "notes": "SG61 National Day promo pricing"
+        },
+        {
+          "type": "pack",
+          "label": "120 classes (SG61 30% off)",
+          "price": 3024,
+          "classes": 120,
+          "perClass": 25.2,
+          "validityDays": 480,
+          "notes": "SG61 National Day promo pricing"
+        },
+        {
+          "type": "unlimited",
+          "label": "Membership (16 classes/mo)",
+          "price": 399.5,
+          "period": "month",
+          "perClass": 24.97,
+          "notes": "$799 billed every 2 months (16+16 sessions); SG61 promo"
+        }
+      ],
+      "promos": [
+        {
+          "label": "SG61 — 30% off class packs (from $25.20/class)",
+          "price": 472,
+          "originalPrice": 674,
+          "classes": 15,
+          "expires": null,
+          "source": "website",
+          "sourceUrl": "https://www.absoluteboutiquefitness.com.sg/packages"
+        },
+        {
+          "label": "First-timer 8-class trial",
+          "price": 160,
+          "classes": 8,
+          "firstTimerOnly": true,
+          "expires": null,
+          "source": "website"
+        }
+      ],
+      "lastChecked": "2026-08-09",
+      "sourceUrl": "https://www.absoluteboutiquefitness.com.sg/packages",
+      "confidence": "verified",
+      "notes": "Part of Absolute Boutique Fitness (reformer + rhythm cycling). Outlets incl. The Centrepoint, Raffles Place, Great World, i12 Katong, The Star Vista, Millenia Walk. Pack/membership prices currently reflect the SG61 National Day promo.",
+      "logo": "/logos/absolute-pilates.ico"
+    },
+    {
+      "id": "sg-pilates",
+      "name": "SG Pilates",
+      "areas": [
+        "Dhoby Ghaut",
+        "Kembangan",
+        "Bugis",
+        "Chinatown",
+        "Upper Thomson",
+        "Lorong Chuan",
+        "Lakeside",
+        "Holland Village",
+        "Springleaf",
+        "Great World",
+        "Aljunied",
+        "Beauty World",
+        "Kovan",
+        "Bukit Gombak",
+        "Tampines East"
+      ],
+      "disciplines": [
+        "reformer"
+      ],
+      "website": "https://sgpilates.sg",
+      "instagram": "https://www.instagram.com/sgpilates.sg",
+      "pricingUrl": "https://sgpilates.sg",
+      "plans": [
+        {
+          "type": "intro",
+          "label": "Trial class (from)",
+          "price": 21.8,
+          "classes": 1,
+          "perClass": 21.8
+        },
+        {
+          "type": "pack",
+          "label": "10-class pack (promo)",
+          "price": 199,
+          "classes": 10,
+          "perClass": 19.9
+        }
+      ],
+      "promos": [
+        {
+          "label": "First trial class from",
+          "price": 21.8,
+          "firstTimerOnly": true,
+          "expires": null,
+          "source": "website",
+          "sourceUrl": "https://sgpilates.sg"
+        },
+        {
+          "label": "10-class pack (promo)",
+          "price": 199,
+          "classes": 10,
+          "expires": null,
+          "source": "manual",
+          "sourceUrl": "https://www.lemon8-app.com/@julswhatever/7532138957853852177"
+        }
+      ],
+      "lastChecked": "2026-08-09",
+      "sourceUrl": "https://sgpilates.sg",
+      "confidence": "estimate",
+      "notes": "Budget chain, ~13-16 outlets islandwide. Website gates full packs behind WhatsApp; promos are announced mainly on Instagram (@sgpilates.sg). The $199/10-class pack is from a customer review pending direct confirmation. Foundational trial class ~$54.50 on their pricing page.",
+      "logo": "/logos/sg-pilates.png"
+    },
+    {
+      "id": "breathe-pilates",
+      "name": "Breathe Pilates",
+      "areas": [
+        "Novena",
+        "Marine Parade",
+        "Buona Vista",
+        "Raffles Place",
+        "Orchard"
+      ],
+      "disciplines": [
+        "reformer"
+      ],
+      "website": "https://www.breathepilates.com.sg",
+      "pricingUrl": "https://www.breathepilates.com.sg/prices",
+      "plans": [
+        {
+          "type": "drop-in",
+          "label": "Single group class",
+          "price": 66
+        },
+        {
+          "type": "intro",
+          "label": "5 Foundational group classes (new client)",
+          "price": 268,
+          "classes": 5,
+          "perClass": 53.6,
+          "validityDays": 60
+        },
+        {
+          "type": "pack",
+          "label": "10 group sessions",
+          "price": 570,
+          "classes": 10,
+          "perClass": 57,
+          "validityDays": 120
+        },
+        {
+          "type": "pack",
+          "label": "20 group sessions",
+          "price": 1069,
+          "classes": 20,
+          "perClass": 53.45,
+          "validityDays": 180
+        }
+      ],
+      "promos": [
+        {
+          "label": "New-client 5 foundational group classes",
+          "price": 268,
+          "classes": 5,
+          "firstTimerOnly": true,
+          "expires": null,
+          "source": "website",
+          "sourceUrl": "https://www.breathepilates.com.sg/prices"
+        }
+      ],
+      "lastChecked": "2026-08-09",
+      "sourceUrl": "https://www.breathepilates.com.sg/prices",
+      "confidence": "verified",
+      "notes": "Premium studio, strong private-session focus. 5 outlets: Novena Medical Centre, Parkway Centre, Galaxis, 6 Raffles Quay, The Heeren. No unlimited membership.",
+      "logo": "/logos/breathe-pilates.ico"
+    },
+    {
+      "id": "club-pilates",
+      "name": "Club Pilates",
+      "areas": [
+        "Orchard",
+        "Katong",
+        "Alexandra",
+        "Woodlands",
+        "Serangoon",
+        "Tampines"
+      ],
+      "disciplines": [
+        "reformer"
+      ],
+      "website": "https://clubpilates.com.sg",
+      "pricingUrl": "https://clubpilates.com.sg/book-form/",
+      "plans": [
+        {
+          "type": "drop-in",
+          "label": "Single class",
+          "price": 47.6
+        },
+        {
+          "type": "unlimited",
+          "label": "4 credits / month",
+          "price": 176,
+          "period": "month",
+          "perClass": 44,
+          "notes": "4 sessions/month, 3-month minimum"
+        },
+        {
+          "type": "unlimited",
+          "label": "Unlimited monthly",
+          "price": 378,
+          "unlimited": true,
+          "period": "month",
+          "notes": "3-month minimum"
+        }
+      ],
+      "promos": [],
+      "lastChecked": "2026-08-09",
+      "sourceUrl": "https://www.topasiaselect.com/post/best-pilates-studios-singapore-2026",
+      "confidence": "estimate",
+      "notes": "Beginner-friendly, tiered Level 1-3 classes standardised across 6 outlets (incl. suburban Woodlands, Serangoon, Tampines). Exact SGD prices from a 2026 listing — the studio's own site quotes tiers only (4x / 8x / unlimited) and gates prices via booking/WhatsApp. Free intro trial available.",
+      "logo": "/logos/club-pilates.ico"
+    }
+  ]
+}
