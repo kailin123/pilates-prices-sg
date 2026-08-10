@@ -28,6 +28,7 @@ import { dirname, join } from "node:path";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DATA = join(__dirname, "..", "data", "studios.json");
 const QUEUE = join(__dirname, "..", "data", "submissions.json");
+const INBOX = join(__dirname, "..", "data", "inbox.json"); // email-free mirror of the Sheet, synced by GitHub Actions
 const SEEN = join(__dirname, "..", "data", "reviewed.json");
 const LOG = join(__dirname, "..", "data", "review-log.json");
 
@@ -88,6 +89,9 @@ async function loadSubmissions() {
       submittedAt: r[0] || "",
     }));
   }
+  // Prefer the committed, email-free inbox (used by the cloud routine, which can't reach Google);
+  // fall back to the local dev queue.
+  if (existsSync(INBOX)) return loadJSON(INBOX, []);
   return loadJSON(QUEUE, []);
 }
 

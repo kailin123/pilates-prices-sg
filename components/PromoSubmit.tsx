@@ -13,7 +13,6 @@ const GFORM = {
   studio: process.env.NEXT_PUBLIC_GFORM_ENTRY_STUDIO,
   url: process.env.NEXT_PUBLIC_GFORM_ENTRY_URL,
   offer: process.env.NEXT_PUBLIC_GFORM_ENTRY_OFFER,
-  email: process.env.NEXT_PUBLIC_GFORM_ENTRY_EMAIL,
 };
 const useGoogle = Boolean(GFORM.action && GFORM.studio && GFORM.url);
 
@@ -58,7 +57,6 @@ export default function PromoSubmit({ studios }: { studios: StudioOption[] }) {
         gf.append(GFORM.studio!, (fd.get("studio") as string) || "");
         gf.append(GFORM.url!, url);
         if (GFORM.offer) gf.append(GFORM.offer, (fd.get("offer") as string) || "");
-        if (GFORM.email) gf.append(GFORM.email, (fd.get("email") as string) || "");
         await fetch(GFORM.action!, { method: "POST", mode: "no-cors", body: gf });
         setStatus("done");
         form.reset();
@@ -73,7 +71,6 @@ export default function PromoSubmit({ studios }: { studios: StudioOption[] }) {
           studio: fd.get("studio"),
           url,
           offer: fd.get("offer"),
-          email: fd.get("email"),
           company: fd.get("company"),
         }),
       });
@@ -163,16 +160,6 @@ export default function PromoSubmit({ studios }: { studios: StudioOption[] }) {
                       rows={2}
                       placeholder="e.g. 10 classes for $199 (National Day promo)"
                       className="mt-1 w-full resize-none rounded-xl border border-line bg-cream/50 px-3 py-2 text-sm text-ink outline-none focus:border-sage"
-                    />
-                  </label>
-
-                  <label className="block">
-                    <span className="text-xs font-medium uppercase tracking-wide text-muted">Your email <span className="normal-case text-muted/70">(optional)</span></span>
-                    <input
-                      name="email"
-                      type="email"
-                      placeholder="so we can thank you"
-                      className="mt-1 w-full rounded-xl border border-line bg-cream/50 px-3 py-2 text-sm text-ink outline-none focus:border-sage"
                     />
                   </label>
 
