@@ -139,6 +139,30 @@ nothing live — their prices come from curation). Treat the scraper as an assis
 spotting changes, not an oracle. To scrape JS-heavy sites later, swap `fetch` for a
 headless browser (Playwright) in an adapter.
 
+## Discovering new studios
+
+`npm run discover` crawls a handful of stable "best pilates studios in Singapore"
+listing pages, pulls out links that look like studio sites, and diffs them against
+what we already track. Anything new lands in a **review queue** — it does *not* go
+live automatically.
+
+```bash
+npm run discover              # DRY RUN — report candidates, write nothing
+npm run discover -- --apply   # append new finds to data/candidates.json
+npm run candidates            # list what's awaiting review
+npm run candidates -- --all   # include already-triaged ones
+```
+
+Why a queue and not auto-publish? Same reason the scraper is dry-run by default:
+most SG studio sites are JS-gated, so auto-scraping a stranger's prices yields junk.
+Discovery only says *"here's a studio worth a look."* You verify pricing, hand-add
+the good ones to `data/studios.json` (see [Adding a studio](#adding-a-studio)), then
+set that candidate's `status` to `"added"` or `"rejected"`. The daily GitHub Action
+runs `discover --apply` too, so the queue fills itself between reviews.
+
+Tune it in `scraper/discover.ts`: `SEEDS` (pages to crawl), `IGNORE_HOSTS`
+(non-studios / already-evaluated), and the keyword/foreign-TLD filters.
+
 ## Deploy
 
 Static-friendly Next app — deploys to Vercel/Netlify/Cloudflare Pages as-is.
@@ -146,7 +170,9 @@ Static-friendly Next app — deploys to Vercel/Netlify/Cloudflare Pages as-is.
 ## Scheduled refresh (GitHub Action)
 
 `.github/workflows/refresh-prices.yml` runs daily (04:00 SGT) and on manual dispatch. It scrapes
-studio websites and commits any changes back to `data/studios.json`. **No secrets or API key are
+studio websites and commits any changes back to `data/studios.json`, and runs `discover` to append
+newly-found studios to the `data/candidates.json` review queue (never published automatically —
+see [Discovering new studios](#discovering-new-studios)). **No secrets or API key are
 required** — it uses the built-in `GITHUB_TOKEN` (`contents: write`) to push. Just push the repo to
 GitHub and, optionally, trigger a first run from the **Actions** tab. Change the cadence via the
 `cron` line.

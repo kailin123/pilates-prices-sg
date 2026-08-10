@@ -1,6 +1,6 @@
 {
   "currency": "SGD",
-  "updatedAt": "2026-08-09",
+  "updatedAt": "2026-08-10",
   "studios": [
     {
       "id": "pilates-fitness",
@@ -767,6 +767,168 @@
       "confidence": "estimate",
       "notes": "Beginner-friendly, tiered Level 1-3 classes standardised across 6 outlets (incl. suburban Woodlands, Serangoon, Tampines). Exact SGD prices from a 2026 listing — the studio's own site quotes tiers only (4x / 8x / unlimited) and gates prices via booking/WhatsApp. Free intro trial available.",
       "logo": "/logos/club-pilates.ico"
+    },
+    {
+      "id": "lab-studios",
+      "name": "Lab Studios",
+      "areas": [
+        "Serangoon Gardens",
+        "Thomson",
+        "East Coast",
+        "Stanley Street",
+        "Holland Village"
+      ],
+      "disciplines": [
+        "reformer",
+        "mat",
+        "barre"
+      ],
+      "website": "https://www.labstudios.com",
+      "pricingUrl": "https://www.labstudios.com/packages",
+      "plans": [
+        {
+          "type": "drop-in",
+          "label": "Single reformer class",
+          "price": 45
+        },
+        {
+          "type": "intro",
+          "label": "Reformer 4-class trial (new client)",
+          "price": 120,
+          "classes": 4,
+          "perClass": 30,
+          "validityDays": 30
+        },
+        {
+          "type": "pack",
+          "label": "Reformer 10-class pack",
+          "price": 400,
+          "classes": 10,
+          "perClass": 40
+        },
+        {
+          "type": "unlimited",
+          "label": "All-access unlimited",
+          "price": 350,
+          "unlimited": true,
+          "period": "month",
+          "notes": "3-month minimum. Single-studio (mat/barre/reformer) membership from $89/mo."
+        }
+      ],
+      "promos": [
+        {
+          "label": "5-day unlimited newbie trial",
+          "price": 49,
+          "originalPrice": 79,
+          "firstTimerOnly": true,
+          "expires": null,
+          "source": "website",
+          "sourceUrl": "https://www.labstudios.com/packages"
+        }
+      ],
+      "lastChecked": "2026-08-10",
+      "sourceUrl": "https://www.labstudios.com/packages",
+      "confidence": "verified",
+      "notes": "Multi-discipline boutique (reformer, barre, mat, LabX, prenatal) with 5 outlets. Reformer single $45, 10-pack $400 ($40/class), 4-class trial $120. All-access unlimited $350/mo (3-mo min); single-studio membership from $89/mo."
+    },
+    {
+      "id": "tirisula-rx-pilates",
+      "name": "Tirisula RX Pilates",
+      "areas": [
+        "Kovan",
+        "Paya Lebar"
+      ],
+      "disciplines": [
+        "reformer"
+      ],
+      "website": "https://tirisulapilates.com",
+      "pricingUrl": "https://tirisulapilates.com/packages/",
+      "instagram": "https://www.instagram.com/tirisulapilates",
+      "plans": [
+        {
+          "type": "intro",
+          "label": "2-class trial (new client)",
+          "price": 29,
+          "classes": 2,
+          "perClass": 14.5
+        },
+        {
+          "type": "pack",
+          "label": "Starter 200 credits — 10 RX self-access sessions",
+          "price": 190,
+          "classes": 10,
+          "perClass": 19,
+          "validityDays": 60,
+          "notes": "200 credits; an RX self-access session = 20 credits, a full instructor Pilates session = 40 credits (5 sessions)."
+        }
+      ],
+      "promos": [],
+      "lastChecked": "2026-08-10",
+      "sourceUrl": "https://tirisulapilates.com/self-access-pilates",
+      "confidence": "estimate",
+      "notes": "Singapore's first self-access reformer studio (Kovan 2). App-booked, Bluetooth entry, video-led. Credit system: Starter $190/200 credits ≈ $19 per RX self-access session (~$38 per instructor-style Pilates session). Ultimate $3,000/4,000 credits ≈ $11.28/session. Prices from reviews/aggregators — packages page is JS-gated."
+    },
+    {
+      "id": "the-flow-pod",
+      "name": "The Flow Pod",
+      "areas": [
+        "Kallang"
+      ],
+      "disciplines": [
+        "reformer"
+      ],
+      "website": "https://www.thegympod.com/the-flow-pod/",
+      "pricingUrl": "https://www.thegympod.com/the-flow-pod/",
+      "plans": [
+        {
+          "type": "drop-in",
+          "label": "30-min self-access session (peak)",
+          "price": 10,
+          "perClass": 10,
+          "notes": "Off-peak (12am–6.30am) S$7.50 per 30-min session."
+        }
+      ],
+      "promos": [
+        {
+          "label": "First session 50% off (app sign-up)",
+          "price": 5,
+          "originalPrice": 10,
+          "firstTimerOnly": true,
+          "expires": null,
+          "source": "website",
+          "sourceUrl": "https://www.thegympod.com/the-flow-pod/"
+        }
+      ],
+      "lastChecked": "2026-08-10",
+      "sourceUrl": "https://www.thegympod.com/the-flow-pod/",
+      "confidence": "estimate",
+      "notes": "24/7 self-access private pod at 462 Crawford Lane, Kallang, operated by The Gym Pod. Commercial Merrithew reformer + PTX smart mirror. Priced per 30-min block: S$10 peak / S$7.50 off-peak. Booked via The Gym Pod app."
+    },
+    {
+      "id": "the-reformer-pod",
+      "name": "The Reformer Pod",
+      "areas": [
+        "Bendemeer"
+      ],
+      "disciplines": [
+        "reformer",
+        "private"
+      ],
+      "website": "https://getspaces.com/sg/listing/reformer-pod-bendemeer--private-pilates--rehab-1903",
+      "instagram": "https://www.instagram.com/inspiremum",
+      "plans": [
+        {
+          "type": "drop-in",
+          "label": "Private 1-to-1 session (from)",
+          "price": 65,
+          "perClass": 65
+        }
+      ],
+      "promos": [],
+      "lastChecked": "2026-08-10",
+      "sourceUrl": "https://getspaces.com/sg/listing/reformer-pod-bendemeer--private-pilates--rehab-1903",
+      "confidence": "estimate",
+      "notes": "Private boutique 1-to-1 studio by Inspire Mum & Baby in Bendemeer — prenatal/postnatal reformer, pelvic-floor & diastasis-recti rehab, clinical exercise therapy (not group classes). From S$65, up to 2 guests; booked via Tagvenue/GetSpaces."
     }
   ]
 }

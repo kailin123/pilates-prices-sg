@@ -22,9 +22,20 @@ export default function Home() {
           Find prices of<br />
           <span className="text-volt">Reformer Pilates</span> classes
         </h1>
-        <p className="mt-6 max-w-2xl text-[15px] leading-relaxed text-muted">
-          Find drop-in rates, class packs, memberships and promos, compared side by side
-        </p>
+        <div className="mt-6 max-w-2xl space-y-3 text-[15px] leading-relaxed text-muted">
+          <p>
+            Reformer studios are opening all over Singapore — and price is a big part of choosing
+            one. But comparing them is genuinely hard. Every studio prices differently: trials,
+            drop-ins, class packs of every size, memberships. Some don&rsquo;t publish prices at all,
+            listing them only on Instagram or inside their own booking apps.
+          </p>
+          <p>
+            This site pulls those scattered prices into one place and puts them in the same format,
+            so you can actually compare like for like. The hard part is the data itself — prices hide
+            behind social media and apps and go stale fast — so we verify from studios&rsquo; own
+            pages where we can and label how fresh and reliable each figure is.
+          </p>
+        </div>
 
         {/* Badge legend — what the data-quality tags mean */}
         <div className="mt-4 max-w-3xl rounded-md border border-line bg-panel px-3 py-2 text-xs leading-relaxed text-muted">

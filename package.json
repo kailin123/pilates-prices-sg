@@ -8,6 +8,8 @@
     "start": "next start",
     "lint": "eslint",
     "scrape": "tsx scraper/scrape.ts",
+    "discover": "tsx scraper/discover.ts",
+    "candidates": "node scripts/candidates.mjs",
     "add-promo": "node scripts/add-promo.mjs",
     "review": "node scripts/review-submissions.mjs",
     "review:prep": "node scripts/review-submissions.mjs --prep",
