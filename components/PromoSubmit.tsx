@@ -88,18 +88,18 @@ export default function PromoSubmit({ studios }: { studios: StudioOption[] }) {
     <>
       <button
         onClick={() => { setOpen(true); setStatus("idle"); }}
-        className="rounded-full bg-sage px-4 py-2 text-sm font-medium text-cream shadow-sm transition hover:bg-sage-deep"
+        className="rounded-md bg-volt px-5 py-2.5 text-sm font-bold uppercase tracking-wide text-ink transition hover:brightness-110"
       >
         Spotted a deal? Submit a promo →
       </button>
 
       {open && (
         <div
-          className="fixed inset-0 z-50 flex items-end justify-center bg-ink/40 p-0 backdrop-blur-sm sm:items-center sm:p-4"
+          className="fixed inset-0 z-50 flex items-end justify-center bg-ink/70 p-0 backdrop-blur-sm sm:items-center sm:p-4"
           onClick={() => setOpen(false)}
         >
           <div
-            className="w-full max-w-md rounded-t-3xl border border-line bg-surface p-6 shadow-xl sm:rounded-3xl"
+            className="w-full max-w-md rounded-t-2xl border-2 border-line bg-panel p-6 shadow-2xl sm:rounded-2xl"
             onClick={(e) => e.stopPropagation()}
             role="dialog"
             aria-modal="true"
@@ -107,13 +107,13 @@ export default function PromoSubmit({ studios }: { studios: StudioOption[] }) {
           >
             {status === "done" ? (
               <div className="py-6 text-center">
-                <p className="font-display text-2xl text-ink">Thank you ✦</p>
+                <p className="font-display text-2xl uppercase tracking-wide text-fg">Thank you ✦</p>
                 <p className="mt-2 text-sm text-muted">
                   Your tip is in the review queue. Once it&rsquo;s checked, it&rsquo;ll appear on the studio&rsquo;s card.
                 </p>
                 <button
                   onClick={() => setOpen(false)}
-                  className="mt-5 rounded-full bg-ink px-5 py-2 text-sm font-medium text-cream"
+                  className="mt-5 rounded-md bg-volt px-5 py-2 text-sm font-bold uppercase tracking-wide text-ink"
                 >
                   Done
                 </button>
@@ -122,18 +122,18 @@ export default function PromoSubmit({ studios }: { studios: StudioOption[] }) {
               <>
                 <div className="flex items-start justify-between gap-3">
                   <div>
-                    <h2 className="font-display text-2xl text-ink">Submit a promo</h2>
+                    <h2 className="font-display text-2xl uppercase tracking-wide text-fg">Submit a promo</h2>
                     <p className="mt-1 text-sm text-muted">
                       Seen a deal on a studio&rsquo;s Instagram or site? Drop the link — we&rsquo;ll verify and add it.
                     </p>
                   </div>
-                  <button onClick={() => setOpen(false)} aria-label="Close" className="shrink-0 rounded-full p-1 text-muted hover:text-ink">✕</button>
+                  <button onClick={() => setOpen(false)} aria-label="Close" className="shrink-0 rounded-full p-1 text-muted hover:text-fg">✕</button>
                 </div>
 
                 <form onSubmit={onSubmit} className="mt-5 space-y-3">
                   <label className="block">
                     <span className="text-xs font-medium uppercase tracking-wide text-muted">Studio</span>
-                    <select name="studio" className="mt-1 w-full rounded-xl border border-line bg-cream/50 px-3 py-2 text-sm text-ink outline-none focus:border-sage">
+                    <select name="studio" className="mt-1 w-full rounded-md border-2 border-line bg-ink px-3 py-2 text-sm text-fg outline-none focus:border-volt">
                       <option value="">Select a studio…</option>
                       {studios.map((s) => (
                         <option key={s.id} value={s.name}>{s.name}</option>
@@ -149,7 +149,7 @@ export default function PromoSubmit({ studios }: { studios: StudioOption[] }) {
                       type="url"
                       required
                       placeholder="https://instagram.com/p/…"
-                      className="mt-1 w-full rounded-xl border border-line bg-cream/50 px-3 py-2 text-sm text-ink outline-none focus:border-sage"
+                      className="mt-1 w-full rounded-md border-2 border-line bg-ink px-3 py-2 text-sm text-fg outline-none focus:border-volt"
                     />
                   </label>
 
@@ -159,7 +159,7 @@ export default function PromoSubmit({ studios }: { studios: StudioOption[] }) {
                       name="offer"
                       rows={2}
                       placeholder="e.g. 10 classes for $199 (National Day promo)"
-                      className="mt-1 w-full resize-none rounded-xl border border-line bg-cream/50 px-3 py-2 text-sm text-ink outline-none focus:border-sage"
+                      className="mt-1 w-full resize-none rounded-md border-2 border-line bg-ink px-3 py-2 text-sm text-fg outline-none focus:border-volt"
                     />
                   </label>
 
@@ -171,7 +171,7 @@ export default function PromoSubmit({ studios }: { studios: StudioOption[] }) {
                   <button
                     type="submit"
                     disabled={status === "sending"}
-                    className="w-full rounded-full bg-sage py-2.5 text-sm font-medium text-cream transition hover:bg-sage-deep disabled:opacity-60"
+                    className="w-full rounded-md bg-volt py-2.5 text-sm font-bold uppercase tracking-wide text-ink transition hover:brightness-110 disabled:opacity-60"
                   >
                     {status === "sending" ? "Sending…" : "Submit promo"}
                   </button>

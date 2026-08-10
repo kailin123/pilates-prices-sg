@@ -1,49 +1,55 @@
 @import "tailwindcss";
 
 /*
-  Warm, editorial "pilates studio" palette — cream base, espresso ink,
-  sage + clay accents. Committed light theme (boutique studios are light).
+  Athletic × bold-flat marketplace: near-black canvas, one electric-lime accent,
+  hot-coral for deals, chunky condensed display type. Committed dark theme.
 */
 @theme {
-  --color-cream: #f6f1e7;
-  --color-oat: #efe7d6;
-  --color-surface: #fffdf8;
-  --color-ink: #3a342c;
-  --color-muted: #8f8577;
-  --color-line: #e7dccb;
+  --color-ink: #0e0f0d;      /* canvas / dark text on light accents */
+  --color-panel: #17191c;    /* cards, inputs */
+  --color-panel-2: #20242a;  /* raised tiles */
+  --color-line: #30332e;     /* borders, dividers */
+  --color-fg: #f5f5f0;       /* primary text */
+  --color-muted: #9a9d94;    /* secondary text */
 
-  --color-sage: #6e7f63;
-  --color-sage-deep: #55654b;
-  --color-sage-soft: #e7ede0;
+  --color-volt: #c6ff3a;     /* electric lime — value / primary accent */
+  --color-deal: #ff5c39;     /* hot coral — deals / savings */
+  --color-gold: #f4c752;     /* estimate badge */
+  --color-rose: #ff6b6b;     /* stale / needs-update */
 
-  --color-clay: #b3765a;
-  --color-clay-soft: #f2e3d9;
-
-  --color-gold: #a9803a;
-  --color-gold-soft: #f0e6ce;
-
-  --color-rose: #a96565;
-  --color-rose-soft: #eddcdb;
-
-  --font-display: var(--font-fraunces);
-  --font-sans: var(--font-manrope);
+  --font-display: var(--font-anton);
+  --font-sans: var(--font-archivo);
 }
 
 :root {
-  color-scheme: light;
+  color-scheme: dark;
 }
 
 html {
-  background: var(--color-cream);
+  background: var(--color-ink);
 }
 
 body {
-  background: var(--color-cream);
-  color: var(--color-ink);
+  background: var(--color-ink);
+  color: var(--color-fg);
   font-family: var(--font-sans), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
 ::selection {
-  background: var(--color-sage-soft);
+  background: var(--color-volt);
+  color: var(--color-ink);
+}
+
+@keyframes otterWave {
+  0%, 100% { transform: rotate(-2deg); }
+  50% { transform: rotate(16deg); }
+}
+.otter-wave {
+  transform-box: fill-box;
+  transform-origin: 55% 95%;
+  animation: otterWave 1.4s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .otter-wave { animation: none; }
 }
