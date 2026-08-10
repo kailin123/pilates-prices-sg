@@ -4,23 +4,93 @@ import { useMemo, useState } from "react";
 import {
   type Studio,
   type Discipline,
+  type PlanType,
   type Confidence,
   planPerClass,
   lowestPerClass,
   cheapestEntry,
   dropInPrice,
+  packPerClass,
+  membershipMonthly,
   activePromos,
 } from "@/lib/types";
 import StudioLogo from "@/components/StudioLogo";
+import TopValue from "@/components/TopValue";
 import { OtterSit } from "@/components/Otters";
 
-type SortKey = "perClass" | "dropIn" | "entry" | "name";
+/**
+ * A "lens" is the single price dimension the user is comparing on. It drives
+ * everything at once — which studios show, the ranking metric, the highlighted
+ * card stat, and the leaderboard — so the pricing filter and sort can't conflict.
+ */
+type Lens = "value" | "trial" | "dropIn" | "pack" | "membership";
+type CardStat = "dropIn" | "perClass" | "entry" | "membership";
 
-const sortLabels: Record<SortKey, string> = {
-  perClass: "Lowest price / class",
-  dropIn: "Drop-in price",
-  entry: "Cheapest to try",
-  name: "Studio name",
+const lensConfig: Record<
+  Lens,
+  {
+    label: string;
+    planType: PlanType | null; // null = every studio qualifies
+    price: (s: Studio) => number | null;
+    unit: string; // suffix shown after a price number
+    metricLabel: string; // short caption for the leaderboard
+    caption: string; // descriptive line for the leaderboard
+    stat: CardStat; // which card stat to highlight
+  }
+> = {
+  value: {
+    label: "Best value (per-class)",
+    planType: null,
+    price: lowestPerClass,
+    unit: "/class",
+    metricLabel: "lowest price / class",
+    caption: "Cheapest committed rate per studio — excludes trials and memberships.",
+    stat: "perClass",
+  },
+  trial: {
+    label: "Trial / intro price",
+    planType: "intro",
+    price: cheapestEntry,
+    unit: "",
+    metricLabel: "cheapest to try",
+    caption: "Cheapest way to try each studio once.",
+    stat: "entry",
+  },
+  dropIn: {
+    label: "Drop-in price",
+    planType: "drop-in",
+    price: dropInPrice,
+    unit: "",
+    metricLabel: "drop-in price",
+    caption: "Single-class drop-in rate per studio.",
+    stat: "dropIn",
+  },
+  pack: {
+    label: "Class pack (per-class)",
+    planType: "pack",
+    price: packPerClass,
+    unit: "/class",
+    metricLabel: "pack price / class",
+    caption: "Cheapest class-pack per-class rate per studio.",
+    stat: "perClass",
+  },
+  membership: {
+    label: "Membership (monthly)",
+    planType: "unlimited",
+    price: membershipMonthly,
+    unit: "/mo",
+    metricLabel: "membership / month",
+    caption: "Cheapest monthly unlimited membership per studio.",
+    stat: "membership",
+  },
+};
+
+type SortDir = "asc" | "desc" | "name";
+
+const sortDirLabels: Record<SortDir, string> = {
+  asc: "Price: low → high",
+  desc: "Price: high → low",
+  name: "Studio name (A–Z)",
 };
 
 const confidenceStyle: Record<Confidence, string> = {
@@ -62,27 +132,17 @@ const selectClass =
 export default function PriceExplorer({ studios, today }: { studios: Studio[]; today: string }) {
   const [query, setQuery] = useState("");
   const [area, setArea] = useState("all");
-  const [discipline, setDiscipline] = useState<"all" | Discipline>("all");
+  const [compareBy, setCompareBy] = useState<Lens>("value");
   const [conf, setConf] = useState<"all" | Confidence>("all");
-  const [sort, setSort] = useState<SortKey>("perClass");
+  const [sortDir, setSortDir] = useState<SortDir>("asc");
   const [expanded, setExpanded] = useState<Record<string, boolean>>({});
+
+  const lens = lensConfig[compareBy];
 
   const areas = useMemo(() => {
     const s = new Set<string>();
     studios.forEach((st) => st.areas.forEach((a) => s.add(a)));
     return Array.from(s).sort();
-  }, [studios]);
-
-  // Top-3 cheapest per class (across all studios) — badged as value picks on their cards.
-  const valueRank = useMemo(() => {
-    const m = new Map<string, number>();
-    studios
-      .map((s) => ({ id: s.id, pc: lowestPerClass(s) }))
-      .filter((x): x is { id: string; pc: number } => x.pc != null)
-      .sort((a, b) => a.pc - b.pc)
-      .slice(0, 3)
-      .forEach((x, i) => m.set(x.id, i));
-    return m;
   }, [studios]);
 
   const confCounts = useMemo(() => {
@@ -95,7 +155,7 @@ export default function PriceExplorer({ studios, today }: { studios: Studio[]; t
     const q = query.trim().toLowerCase();
     const rows = studios.filter((st) => {
       if (area !== "all" && !st.areas.includes(area)) return false;
-      if (discipline !== "all" && !st.disciplines.includes(discipline)) return false;
+      if (lens.planType && !st.plans.some((p) => p.type === lens.planType)) return false;
       if (conf !== "all" && st.confidence !== conf) return false;
       if (q) {
         const hay = (st.name + " " + st.areas.join(" ")).toLowerCase();
@@ -104,18 +164,29 @@ export default function PriceExplorer({ studios, today }: { studios: Studio[]; t
       return true;
     });
 
-    const val = (st: Studio): number => {
-      if (sort === "name") return 0;
-      const v =
-        sort === "dropIn" ? dropInPrice(st) : sort === "entry" ? cheapestEntry(st) : lowestPerClass(st);
-      return v == null ? Number.POSITIVE_INFINITY : v;
-    };
-
     return rows.sort((a, b) => {
-      if (sort === "name") return a.name.localeCompare(b.name);
-      return val(a) - val(b);
+      if (sortDir === "name") return a.name.localeCompare(b.name);
+      const av = lens.price(a);
+      const bv = lens.price(b);
+      // Studios without a price for this lens always sort last, either direction.
+      if (av == null && bv == null) return 0;
+      if (av == null) return 1;
+      if (bv == null) return -1;
+      return sortDir === "asc" ? av - bv : bv - av;
     });
-  }, [studios, query, area, discipline, conf, sort]);
+  }, [studios, query, area, lens, conf, sortDir]);
+
+  // Top-3 cheapest for the active lens (within the current results) — badged on cards.
+  const valueRank = useMemo(() => {
+    const m = new Map<string, number>();
+    filtered
+      .map((s) => ({ id: s.id, pc: lens.price(s) }))
+      .filter((x): x is { id: string; pc: number } => x.pc != null)
+      .sort((a, b) => a.pc - b.pc)
+      .slice(0, 3)
+      .forEach((x, i) => m.set(x.id, i));
+    return m;
+  }, [filtered, lens]);
 
   return (
     <div>
@@ -136,18 +207,23 @@ export default function PriceExplorer({ studios, today }: { studios: Studio[]; t
             ))}
           </select>
           <select
-            value={discipline}
-            onChange={(e) => setDiscipline(e.target.value as "all" | Discipline)}
+            value={compareBy}
+            onChange={(e) => setCompareBy(e.target.value as Lens)}
             className={selectClass}
+            aria-label="Compare studios by"
           >
-            <option value="all">All types</option>
-            {(["reformer", "mat", "barre", "private"] as Discipline[]).map((d) => (
-              <option key={d} value={d}>{disciplineLabel[d]}</option>
+            {(Object.keys(lensConfig) as Lens[]).map((k) => (
+              <option key={k} value={k}>Compare: {lensConfig[k].label}</option>
             ))}
           </select>
-          <select value={sort} onChange={(e) => setSort(e.target.value as SortKey)} className={selectClass}>
-            {(Object.keys(sortLabels) as SortKey[]).map((k) => (
-              <option key={k} value={k}>Sort: {sortLabels[k]}</option>
+          <select
+            value={sortDir}
+            onChange={(e) => setSortDir(e.target.value as SortDir)}
+            className={selectClass}
+            aria-label="Sort order"
+          >
+            {(Object.keys(sortDirLabels) as SortDir[]).map((k) => (
+              <option key={k} value={k}>Sort: {sortDirLabels[k]}</option>
             ))}
           </select>
         </div>
@@ -173,6 +249,15 @@ export default function PriceExplorer({ studios, today }: { studios: Studio[]; t
         </div>
       </div>
 
+      {/* Best-value board — ranks the current results by the active lens */}
+      <TopValue
+        studios={filtered}
+        price={lens.price}
+        unit={lens.unit}
+        metricLabel={lens.metricLabel}
+        caption={lens.caption}
+      />
+
       <p className="mb-4 text-sm text-muted">
         {filtered.length} studio{filtered.length === 1 ? "" : "s"}
       </p>
@@ -184,6 +269,7 @@ export default function PriceExplorer({ studios, today }: { studios: Studio[]; t
           const perClass = lowestPerClass(st);
           const drop = dropInPrice(st);
           const entry = cheapestEntry(st);
+          const membership = membershipMonthly(st);
           const fresh = freshness(st.lastChecked, today);
           const rank = valueRank.get(st.id);
           const isOpen = !!expanded[st.id];
@@ -223,11 +309,15 @@ export default function PriceExplorer({ studios, today }: { studios: Studio[]; t
                 </div>
               </div>
 
-              {/* Key numbers */}
+              {/* Key numbers — the stat matching the active lens is highlighted */}
               <dl className="mt-5 grid grid-cols-3 gap-2 text-center">
-                <Stat label="Drop-in" value={drop != null ? sgd(drop) : "—"} />
-                <Stat label="From / class" value={perClass != null ? sgd(Math.round(perClass * 100) / 100) : "—"} highlight />
-                <Stat label="Try from" value={entry != null ? sgd(Math.round(entry * 100) / 100) : "—"} />
+                <Stat label="Drop-in" value={drop != null ? sgd(drop) : "—"} highlight={lens.stat === "dropIn"} />
+                <Stat label="From / class" value={perClass != null ? sgd(Math.round(perClass * 100) / 100) : "—"} highlight={lens.stat === "perClass"} />
+                {lens.stat === "membership" ? (
+                  <Stat label="Membership / mo" value={membership != null ? sgd(Math.round(membership * 100) / 100) : "—"} highlight />
+                ) : (
+                  <Stat label="Try from" value={entry != null ? sgd(Math.round(entry * 100) / 100) : "—"} highlight={lens.stat === "entry"} />
+                )}
               </dl>
 
               {/* Promos */}

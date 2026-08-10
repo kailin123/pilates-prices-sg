@@ -100,6 +100,24 @@ export function dropInPrice(studio: Studio): number | null {
   return d ? d.price : null;
 }
 
+/** Cheapest per-class price among a studio's class packs. */
+export function packPerClass(studio: Studio): number | null {
+  const candidates = studio.plans
+    .filter((p) => p.type === "pack")
+    .map(planPerClass)
+    .filter((v): v is number => v != null);
+  return candidates.length ? Math.min(...candidates) : null;
+}
+
+/** Cheapest monthly-equivalent price among a studio's unlimited memberships. */
+export function membershipMonthly(studio: Studio): number | null {
+  const candidates = studio.plans
+    .filter((p) => p.type === "unlimited")
+    // Normalise a weekly membership to a monthly figure so lenses compare like-for-like.
+    .map((p) => (p.period === "week" ? (p.price * 52) / 12 : p.price));
+  return candidates.length ? Math.min(...candidates) : null;
+}
+
 export function activePromos(studio: Studio, today: string): Promo[] {
   return studio.promos.filter((p) => !p.expires || p.expires >= today);
 }

@@ -275,28 +275,24 @@
       "disciplines": [
         "reformer"
       ],
-      "website": "https://www.allyspin.com",
+      "website": "https://ally.family/",
       "instagram": "https://www.instagram.com/allypilates.sg",
-      "pricingUrl": "https://www.allyspin.com",
+      "pricingUrl": "https://ally.family/",
       "plans": [
         {
-          "type": "drop-in",
-          "label": "Single class",
-          "price": 59
-        },
-        {
           "type": "intro",
-          "label": "Intro 4 classes",
+          "label": "First-Timer 3 Pack",
           "price": 99,
-          "classes": 4,
-          "perClass": 24.75
+          "classes": 3,
+          "perClass": 33,
+          "notes": "First-timers only; usable for Ride, Reformer or Chair Pilates."
         }
       ],
       "promos": [],
-      "lastChecked": "2023-07-01",
-      "sourceUrl": "https://www.lemon8-app.com/@resident_unni/7263086792587477506",
-      "confidence": "stale",
-      "notes": "Figures date from 2023 launch coverage — needs re-verification against the current site.",
+      "lastChecked": "2026-08-10",
+      "sourceUrl": "https://ally.family/info/first-timers/",
+      "confidence": "estimate",
+      "notes": "Drop-in, pack and membership pricing has moved into the ALLY SG app and is no longer published online; only the public First-Timer 3 Pack ($99 for 3 mixed Ride/Reformer/Chair classes) is verifiable.",
       "logo": "/logos/ally-pilates.png"
     },
     {

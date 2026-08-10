@@ -27,7 +27,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <nav className="border-b-2 border-line">
           <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-5 py-4">
             <Link href="/" className="font-display text-xl uppercase tracking-wide text-fg">
-              Pilates Price <span className="text-volt">Where?</span>
+              <span className="text-volt">Pilates Price</span> Where?
             </Link>
             <div className="flex items-center gap-6 text-xs font-semibold uppercase tracking-wider">
               <Link href="/" className="text-fg transition hover:text-volt">Prices</Link>

@@ -50,6 +50,16 @@ body {
   transform-origin: 55% 95%;
   animation: otterWave 1.4s ease-in-out infinite;
 }
+
+@keyframes otterReform {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(-9px); }
+}
+.otter-reform {
+  animation: otterReform 1.8s ease-in-out infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .otter-wave { animation: none; }
+  .otter-wave,
+  .otter-reform { animation: none; }
 }
