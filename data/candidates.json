@@ -1,123 +1,38 @@
 [
   {
-    "name": "★ Featured",
-    "url": "https://reignpilates.com/",
-    "host": "reignpilates.com",
-    "keyword": "pilates",
-    "sources": [
-      "https://reformerfinder.com/singapore-reformer-pilates"
-    ],
-    "firstSeen": "2026-08-10",
-    "lastSeen": "2026-08-23",
-    "status": "new"
-  },
-  {
-    "name": "rigakubody.sg",
-    "url": "https://rigakubody.sg/",
-    "host": "rigakubody.sg",
-    "keyword": "pilates",
-    "sources": [
-      "https://reformerfinder.com/singapore-reformer-pilates"
-    ],
-    "firstSeen": "2026-08-10",
-    "lastSeen": "2026-08-23",
-    "status": "new"
-  },
-  {
-    "name": "Flex Studio",
-    "url": "https://sg.flexstudiopilates.com/",
-    "host": "sg.flexstudiopilates.com",
-    "keyword": "pilates",
-    "sources": [
-      "https://www.topasiaselect.com/post/best-pilates-studios-singapore-2026"
-    ],
-    "firstSeen": "2026-08-10",
-    "lastSeen": "2026-08-23",
-    "status": "new"
-  },
-  {
-    "name": "linepilates.sg",
-    "url": "https://linepilates.sg/",
-    "host": "linepilates.sg",
+    "name": "Off Duty Pilates locations",
+    "url": "https://offdutypilates.com/",
+    "host": "offdutypilates.com",
     "keyword": "pilates",
     "sources": [
       "https://thesmartlocal.com/read/pilates-studios-singapore/"
     ],
     "firstSeen": "2026-08-10",
-    "lastSeen": "2026-08-23",
+    "lastSeen": "2026-08-24",
     "status": "new"
   },
   {
-    "name": "thepilatesflow.com.sg",
-    "url": "https://thepilatesflow.com.sg/",
-    "host": "thepilatesflow.com.sg",
-    "keyword": "pilates",
-    "sources": [
-      "https://thesmartlocal.com/read/pilates-studios-singapore/",
-      "https://www.topasiaselect.com/post/best-pilates-studios-singapore-2026"
-    ],
-    "firstSeen": "2026-08-10",
-    "lastSeen": "2026-08-23",
-    "status": "new"
-  },
-  {
-    "name": "bolopilates.com",
-    "url": "https://bolopilates.com/",
-    "host": "bolopilates.com",
-    "keyword": "pilates",
-    "sources": [
-      "https://thesmartlocal.com/read/pilates-studios-singapore/"
-    ],
-    "firstSeen": "2026-08-10",
-    "lastSeen": "2026-08-23",
-    "status": "new"
-  },
-  {
-    "name": "Jal Yoga locations",
-    "url": "https://jalyoga.com.sg/",
-    "host": "jalyoga.com.sg",
-    "keyword": "yoga",
-    "sources": [
-      "https://thesmartlocal.com/read/pilates-studios-singapore/"
-    ],
-    "firstSeen": "2026-08-10",
-    "lastSeen": "2026-08-23",
-    "status": "new"
-  },
-  {
-    "name": "bestudios.co",
-    "url": "https://bestudios.co/",
-    "host": "bestudios.co",
+    "name": "wunderbody.studio",
+    "url": "https://wunderbody.studio/",
+    "host": "wunderbody.studio",
     "keyword": "studio",
     "sources": [
       "https://thesmartlocal.com/read/pilates-studios-singapore/"
     ],
     "firstSeen": "2026-08-10",
-    "lastSeen": "2026-08-23",
+    "lastSeen": "2026-08-24",
     "status": "new"
   },
   {
-    "name": "Pilates Works locations",
-    "url": "https://pilates.com.sg/",
-    "host": "pilates.com.sg",
-    "keyword": "pilates",
+    "name": "idostudiosg.com",
+    "url": "https://idostudiosg.com/",
+    "host": "idostudiosg.com",
+    "keyword": "studio",
     "sources": [
       "https://thesmartlocal.com/read/pilates-studios-singapore/"
     ],
     "firstSeen": "2026-08-10",
-    "lastSeen": "2026-08-23",
-    "status": "new"
-  },
-  {
-    "name": "pilatesmotiv.com",
-    "url": "https://pilatesmotiv.com/",
-    "host": "pilatesmotiv.com",
-    "keyword": "pilates",
-    "sources": [
-      "https://thesmartlocal.com/read/pilates-studios-singapore/"
-    ],
-    "firstSeen": "2026-08-10",
-    "lastSeen": "2026-08-23",
+    "lastSeen": "2026-08-24",
     "status": "new"
   },
   {
@@ -130,43 +45,128 @@
       "https://www.topasiaselect.com/post/best-pilates-studios-singapore-2026"
     ],
     "firstSeen": "2026-08-10",
-    "lastSeen": "2026-08-23",
+    "lastSeen": "2026-08-24",
     "status": "new"
   },
   {
-    "name": "idostudiosg.com",
-    "url": "https://idostudiosg.com/",
-    "host": "idostudiosg.com",
-    "keyword": "studio",
-    "sources": [
-      "https://thesmartlocal.com/read/pilates-studios-singapore/"
-    ],
-    "firstSeen": "2026-08-10",
-    "lastSeen": "2026-08-23",
-    "status": "new"
-  },
-  {
-    "name": "wunderbody.studio",
-    "url": "https://wunderbody.studio/",
-    "host": "wunderbody.studio",
-    "keyword": "studio",
-    "sources": [
-      "https://thesmartlocal.com/read/pilates-studios-singapore/"
-    ],
-    "firstSeen": "2026-08-10",
-    "lastSeen": "2026-08-23",
-    "status": "new"
-  },
-  {
-    "name": "Off Duty Pilates locations",
-    "url": "https://offdutypilates.com/",
-    "host": "offdutypilates.com",
+    "name": "pilatesmotiv.com",
+    "url": "https://pilatesmotiv.com/",
+    "host": "pilatesmotiv.com",
     "keyword": "pilates",
     "sources": [
       "https://thesmartlocal.com/read/pilates-studios-singapore/"
     ],
     "firstSeen": "2026-08-10",
-    "lastSeen": "2026-08-23",
+    "lastSeen": "2026-08-24",
+    "status": "new"
+  },
+  {
+    "name": "Pilates Works locations",
+    "url": "https://pilates.com.sg/",
+    "host": "pilates.com.sg",
+    "keyword": "pilates",
+    "sources": [
+      "https://thesmartlocal.com/read/pilates-studios-singapore/"
+    ],
+    "firstSeen": "2026-08-10",
+    "lastSeen": "2026-08-24",
+    "status": "new"
+  },
+  {
+    "name": "bestudios.co",
+    "url": "https://bestudios.co/",
+    "host": "bestudios.co",
+    "keyword": "studio",
+    "sources": [
+      "https://thesmartlocal.com/read/pilates-studios-singapore/"
+    ],
+    "firstSeen": "2026-08-10",
+    "lastSeen": "2026-08-24",
+    "status": "new"
+  },
+  {
+    "name": "Jal Yoga locations",
+    "url": "https://jalyoga.com.sg/",
+    "host": "jalyoga.com.sg",
+    "keyword": "yoga",
+    "sources": [
+      "https://thesmartlocal.com/read/pilates-studios-singapore/"
+    ],
+    "firstSeen": "2026-08-10",
+    "lastSeen": "2026-08-24",
+    "status": "new"
+  },
+  {
+    "name": "bolopilates.com",
+    "url": "https://bolopilates.com/",
+    "host": "bolopilates.com",
+    "keyword": "pilates",
+    "sources": [
+      "https://thesmartlocal.com/read/pilates-studios-singapore/"
+    ],
+    "firstSeen": "2026-08-10",
+    "lastSeen": "2026-08-24",
+    "status": "new"
+  },
+  {
+    "name": "thepilatesflow.com.sg",
+    "url": "https://thepilatesflow.com.sg/",
+    "host": "thepilatesflow.com.sg",
+    "keyword": "pilates",
+    "sources": [
+      "https://thesmartlocal.com/read/pilates-studios-singapore/",
+      "https://www.topasiaselect.com/post/best-pilates-studios-singapore-2026"
+    ],
+    "firstSeen": "2026-08-10",
+    "lastSeen": "2026-08-24",
+    "status": "new"
+  },
+  {
+    "name": "linepilates.sg",
+    "url": "https://linepilates.sg/",
+    "host": "linepilates.sg",
+    "keyword": "pilates",
+    "sources": [
+      "https://thesmartlocal.com/read/pilates-studios-singapore/"
+    ],
+    "firstSeen": "2026-08-10",
+    "lastSeen": "2026-08-24",
+    "status": "new"
+  },
+  {
+    "name": "Flex Studio",
+    "url": "https://sg.flexstudiopilates.com/",
+    "host": "sg.flexstudiopilates.com",
+    "keyword": "pilates",
+    "sources": [
+      "https://www.topasiaselect.com/post/best-pilates-studios-singapore-2026"
+    ],
+    "firstSeen": "2026-08-10",
+    "lastSeen": "2026-08-24",
+    "status": "new"
+  },
+  {
+    "name": "rigakubody.sg",
+    "url": "https://rigakubody.sg/",
+    "host": "rigakubody.sg",
+    "keyword": "pilates",
+    "sources": [
+      "https://reformerfinder.com/singapore-reformer-pilates"
+    ],
+    "firstSeen": "2026-08-10",
+    "lastSeen": "2026-08-24",
+    "status": "new"
+  },
+  {
+    "name": "★ Featured",
+    "url": "https://reignpilates.com/",
+    "host": "reignpilates.com",
+    "keyword": "pilates",
+    "sources": [
+      "https://reformerfinder.com/singapore-reformer-pilates"
+    ],
+    "firstSeen": "2026-08-10",
+    "lastSeen": "2026-08-24",
     "status": "new"
   }
 ]
