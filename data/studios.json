@@ -1,6 +1,6 @@
 {
   "currency": "SGD",
-  "updatedAt": "2026-11-05",
+  "updatedAt": "2026-11-06",
   "studios": [
     {
       "id": "pilates-fitness",
@@ -173,14 +173,12 @@
         {
           "type": "drop-in",
           "label": "Single class",
-          "price": 34
+          "price": 30
         },
         {
           "type": "intro",
-          "label": "5-class intro pack",
-          "price": 85,
-          "classes": 5,
-          "perClass": 17
+          "label": "Intro pack",
+          "price": 55
         },
         {
           "type": "pack",
@@ -210,7 +208,7 @@
           "sourceUrl": "https://kxpilates.com/sg"
         }
       ],
-      "lastChecked": "2026-11-05",
+      "lastChecked": "2026-11-06",
       "sourceUrl": "https://kxpilates.com/sg",
       "confidence": "verified",
       "notes": "Prices compiled from listings; confirm on the SG booking site before purchase.",
